@@ -20,8 +20,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
-				serif: ['GT Sectra', 'Georgia', 'serif'],
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				serif: ['Inter', 'system-ui', 'sans-serif'],
+				geometric: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -67,17 +68,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				orangery: {
-					50: '#f9fafb',
-					100: '#f3f4f6',
-					200: '#e5e7eb',
-					300: '#d1d5db',
-					400: '#9ca3af',
-					500: '#6b7280',
-					600: '#4b5563',
-					700: '#374151',
-					800: '#1f2937',
-					900: '#111827',
+				cosmic: {
+					blue: '#1a237e',
+					gold: '#ffb300',
+					white: '#ffffff',
+					silver: '#90a4ae',
+					gray: '#f5f5f5',
 				}
 			},
 			borderRadius: {
@@ -86,22 +82,6 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
-				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				},
 				'fade-in': {
 					'0%': {
 						opacity: '0',
@@ -121,35 +101,11 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
-				},
-				'fade-in-down': {
-					'0%': {
-						opacity: '0',
-						transform: 'translateY(-20px)'
-					},
-					'100%': {
-						opacity: '1',
-						transform: 'translateY(0)'
-					}
-				},
-				'text-reveal': {
-					'0%': {
-						transform: 'translateY(100%)',
-						opacity: '0'
-					},
-					'100%': {
-						transform: 'translateY(0)',
-						opacity: '1'
-					}
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'fade-in-up': 'fade-in-up 0.7s ease-out forwards',
-				'fade-in-down': 'fade-in-down 0.7s ease-out forwards',
-				'text-reveal': 'text-reveal 0.7s ease-out forwards'
 			}
 		}
 	},

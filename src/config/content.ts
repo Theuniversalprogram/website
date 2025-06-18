@@ -44,7 +44,7 @@ export const websiteContent: TextContent[] = [
     id: 'hero-description',
     category: 'paragraph',
     component: 'BookHero',
-    text: 'Discover how three fundamental principles - Matter, Motion, and Persistence - unlock the secrets of everything'
+    text: 'Discover how three fundamental principles - unlock the secrets of everything'
   },
   {
     id: 'hero-cta-button',
@@ -318,7 +318,7 @@ export const websiteContent: TextContent[] = [
     id: 'footer-title',
     category: 'heading',
     component: 'BookFooter',
-    text: 'The Universal Program'
+    text: 'MINDCACHE LTD'
   },
   {
     id: 'footer-copyright',

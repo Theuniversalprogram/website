@@ -1,15 +1,21 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 import FadeIn from './animations/FadeIn';
 import { Button } from '@/components/ui/button';
 import SacredGeometryBackground from './background/SacredGeometryBackground';
+import { getContentByComponent } from '@/config/content';
 
 interface BookHeroProps {
   className?: string;
 }
 
 const BookHero: React.FC<BookHeroProps> = ({ className }) => {
+  const content = getContentByComponent('BookHero');
+  const mainTitle = content.find(item => item.id === 'hero-main-title')?.text || 'The Universal Program';
+  const subtitle = content.find(item => item.id === 'hero-subtitle')?.text || 'The Universe Source Code';
+  const description = content.find(item => item.id === 'hero-description')?.text || 'Discover how three fundamental principles - Matter, Motion, and Persistence - unlock the secrets of everything';
+  const ctaButton = content.find(item => item.id === 'hero-cta-button')?.text || 'Get the Book';
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -27,19 +33,19 @@ const BookHero: React.FC<BookHeroProps> = ({ className }) => {
       <div className="container mx-auto max-w-4xl text-center relative z-10">
         <FadeIn delay={100}>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-geometric font-bold text-cosmic-blue mb-6 leading-tight drop-shadow-lg">
-            The Universal Program
+            {mainTitle}
           </h1>
         </FadeIn>
         
         <FadeIn delay={200}>
           <h2 className="text-xl md:text-2xl lg:text-3xl font-geometric font-medium text-cosmic-blue mb-4 drop-shadow-md">
-            The Universe Source Code
+            {subtitle}
           </h2>
         </FadeIn>
         
         <FadeIn delay={300}>
           <p className="text-lg md:text-xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
-            Discover how three fundamental principles - Matter, Motion, and Persistence - unlock the secrets of everything
+            {description}
           </p>
         </FadeIn>
         
@@ -81,7 +87,7 @@ const BookHero: React.FC<BookHeroProps> = ({ className }) => {
             onClick={() => scrollToSection('purchase')}
             className="bg-cosmic-gold hover:bg-cosmic-gold/90 text-cosmic-blue font-geometric font-semibold text-lg px-8 py-4 h-auto rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm"
           >
-            Get the Book
+            {ctaButton}
           </Button>
         </FadeIn>
       </div>

@@ -1,58 +1,32 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 import FadeIn from './animations/FadeIn';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
+import { getPurchaseLinks } from '@/config/links';
+import { getContentByComponent } from '@/config/content';
 
 interface PurchaseOptionsProps {
   className?: string;
 }
 
 const PurchaseOptions: React.FC<PurchaseOptionsProps> = ({ className }) => {
-  const purchaseOptions = [
-    {
-      name: 'Amazon Kindle',
-      description: 'Digital edition',
-      url: '#',
-      popular: true
-    },
-    {
-      name: 'Apple Books',
-      description: 'For iOS devices',
-      url: '#'
-    },
-    {
-      name: 'Google Books',
-      description: 'Digital library',
-      url: '#'
-    },
-    {
-      name: 'Barnes & Noble',
-      description: 'Digital & print',
-      url: '#'
-    },
-    {
-      name: 'Kobo',
-      description: 'E-reader platform',
-      url: '#'
-    },
-    {
-      name: 'Physical Bookstores',
-      description: 'Local retailers',
-      url: '#'
-    }
-  ];
+  const purchaseOptions = getPurchaseLinks();
+  const content = getContentByComponent('PurchaseOptions');
+  const title = content.find(item => item.id === 'purchase-title')?.text || 'Where to Buy';
+  const description = content.find(item => item.id === 'purchase-description')?.text || 'Available across all major platforms in digital and physical formats';
+  const buyButton = content.find(item => item.id === 'purchase-button')?.text || 'Buy Now';
+  const popularBadge = content.find(item => item.id === 'purchase-popular-badge')?.text || 'Popular';
 
   return (
     <section id="purchase" className={cn('py-20 md:py-32 bg-white', className)}>
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <FadeIn className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-geometric font-bold text-cosmic-blue mb-8">
-            Where to Buy
+            {title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Available across all major platforms in digital and physical formats
+            {description}
           </p>
         </FadeIn>
         
@@ -61,14 +35,14 @@ const PurchaseOptions: React.FC<PurchaseOptionsProps> = ({ className }) => {
             <FadeIn key={option.name} delay={index * 100}>
               <div className={cn(
                 'relative p-6 border-2 rounded-lg transition-all duration-300 hover:shadow-lg group cursor-pointer',
-                option.popular 
+                option.featured 
                   ? 'border-cosmic-gold bg-cosmic-gold/5' 
                   : 'border-gray-200 hover:border-cosmic-blue'
               )}>
-                {option.popular && (
+                {option.featured && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-cosmic-gold text-cosmic-blue px-3 py-1 text-sm font-semibold rounded-full">
-                      Popular
+                      {popularBadge}
                     </span>
                   </div>
                 )}
@@ -83,10 +57,10 @@ const PurchaseOptions: React.FC<PurchaseOptionsProps> = ({ className }) => {
                     variant="outline"
                     className={cn(
                       'w-full group-hover:bg-cosmic-blue group-hover:text-white transition-colors duration-300',
-                      option.popular && 'border-cosmic-gold hover:bg-cosmic-gold hover:text-cosmic-blue'
+                      option.featured && 'border-cosmic-gold hover:bg-cosmic-gold hover:text-cosmic-blue'
                     )}
                   >
-                    Buy Now
+                    {buyButton}
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
                 </div>

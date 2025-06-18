@@ -1,52 +1,39 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 import FadeIn from './animations/FadeIn';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Mail, Instagram, Globe } from 'lucide-react';
+import { getSocialLinks } from '@/config/links';
+import { getContentByComponent } from '@/config/content';
 
 interface SocialFollowProps {
   className?: string;
 }
 
 const SocialFollow: React.FC<SocialFollowProps> = ({ className }) => {
-  const socialLinks = [
-    {
-      name: 'Substack',
-      description: 'Deep insights & analysis',
-      url: 'https://maxios.substack.com',
-      icon: Mail,
-      featured: true
-    },
-    {
-      name: 'Instagram',
-      description: '@theuniversalprogram',
-      url: 'https://instagram.com/theuniversalprogram',
-      icon: Instagram
-    },
-    {
-      name: 'X (Twitter)',
-      description: '@theuniversalprogram',
-      url: 'https://x.com/theuniversalprogram',
-      icon: ExternalLink
-    },
-    {
-      name: 'Website',
-      description: 'theuniversalprogram.com',
-      url: 'https://theuniversalprogram.com',
-      icon: Globe
-    }
-  ];
+  const socialLinks = getSocialLinks().map(link => ({
+    name: link.name,
+    description: link.description,
+    url: link.url,
+    icon: link.name === 'Substack' ? Mail : 
+          link.name === 'Instagram' ? Instagram :
+          link.name === 'X (Twitter)' ? ExternalLink : Globe,
+    featured: link.featured || false
+  }));
+
+  const content = getContentByComponent('SocialFollow');
+  const title = content.find(item => item.id === 'social-title')?.text || 'Join the Conversation';
+  const description = content.find(item => item.id === 'social-description')?.text || 'Follow the ongoing development of the Triadic Framework and connect with a community of curious minds exploring the fundamental patterns of reality.';
 
   return (
     <section id="follow" className={cn('py-20 md:py-32 bg-cosmic-gray', className)}>
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
         <FadeIn className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-geometric font-bold text-cosmic-blue mb-8">
-            Join the Conversation
+            {title}
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
-            Follow the ongoing development of the Triadic Framework and connect with a community of curious minds exploring the fundamental patterns of reality.
+            {description}
           </p>
         </FadeIn>
         

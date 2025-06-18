@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import FadeIn from './animations/FadeIn';
-import { Cube, ArrowRight, Database } from 'lucide-react';
+import { Box, ArrowRight, Database } from 'lucide-react';
 
 interface CoreConceptProps {
   className?: string;
@@ -28,7 +28,7 @@ const CoreConcept: React.FC<CoreConceptProps> = ({ className }) => {
           <FadeIn delay={100}>
             <div className="text-center group">
               <div className="w-20 h-20 mx-auto mb-6 bg-cosmic-blue rounded-full flex items-center justify-center group-hover:bg-cosmic-gold transition-colors duration-300">
-                <Cube className="w-10 h-10 text-white" />
+                <Box className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-geometric font-semibold text-cosmic-blue mb-4">
                 Matter

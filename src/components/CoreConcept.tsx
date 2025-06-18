@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 import FadeIn from './animations/FadeIn';
@@ -10,8 +9,11 @@ interface CoreConceptProps {
 
 const CoreConcept: React.FC<CoreConceptProps> = ({ className }) => {
   return (
-    <section id="concept" className={cn('py-20 md:py-32 bg-cosmic-gray', className)}>
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+    <section id="concept" className={cn('py-20 md:py-32 bg-cosmic-gray relative', className)}>
+      {/* Subtle overlay to ensure readability */}
+      <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+      
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl relative z-10">
         <FadeIn className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-geometric font-bold text-cosmic-blue mb-8">
             The Triadic Framework

@@ -90,6 +90,43 @@
   .text-pretty {
     text-wrap: pretty;
   }
+
+  /* 3D Transform Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .rotate-y-90 {
+    transform: rotateY(90deg);
+  }
+  
+  .rotate-y-12 {
+    transform: rotateY(12deg);
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .translate-z-4 {
+    transform: translateZ(4px);
+  }
+  
+  .translate-z-minus-2 {
+    transform: translateZ(-2px);
+  }
+  
+  .translate-z-minus-4 {
+    transform: translateZ(-4px);
+  }
+  
+  .writing-mode-vertical {
+    writing-mode: vertical-lr;
+  }
 }
 
 ::-webkit-scrollbar {

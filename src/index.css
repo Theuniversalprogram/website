@@ -75,10 +75,16 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-optical-sizing: auto;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-geometric tracking-tight;
+    font-optical-sizing: auto;
+  }
+
+  p {
+    font-optical-sizing: auto;
   }
 }
 
@@ -126,6 +132,24 @@
   
   .writing-mode-vertical {
     writing-mode: vertical-lr;
+  }
+
+  /* DeepMind-inspired utilities */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .subtle-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 

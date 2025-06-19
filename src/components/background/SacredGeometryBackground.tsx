@@ -457,7 +457,7 @@ const SacredGeometryBackground: React.FC<SacredGeometryBackgroundProps> = ({ cla
   }, [reduceMotion]);
 
   return (
-    <div className={cn('fixed inset-0 -z-10', className)}>
+    <div className={cn('absolute bg-orange-500', className)}>
       <canvas
         ref={canvasRef}
         className={cn(

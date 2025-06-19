@@ -22,7 +22,7 @@ const BookHero: React.FC<BookHeroProps> = ({ className }) => {
   };
 
   return (
-    <section className={cn('relative min-h-screen flex flex-col items-center justify-center py-32 px-4 overflow-hidden', className)}>
+    <section className={cn('relative w-full flex flex-col items-center justify-center py-32 px-4 overflow-hidden', className)}>
       <SacredGeometryBackground />
       
       <div className="container mx-auto max-w-7xl relative z-10 flex-1">
